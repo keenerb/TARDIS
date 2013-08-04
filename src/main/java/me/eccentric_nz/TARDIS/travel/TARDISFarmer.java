@@ -34,6 +34,7 @@ import org.bukkit.entity.EntityType;
 import static org.bukkit.entity.EntityType.OCELOT;
 import static org.bukkit.entity.EntityType.WOLF;
 import org.bukkit.entity.Horse;
+import org.bukkit.entity.LeashHitch;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.MushroomCow;
 import org.bukkit.entity.Ocelot;
@@ -179,7 +180,9 @@ public class TARDISFarmer {
                         if (horse.isLeashed()) {
                             Entity leash = horse.getLeashHolder();
                             tmhor.setLeashed(true);
-                            leash.remove();
+                            if (leash instanceof LeashHitch) {
+                                leash.remove();
+                            }
                         }
                         old_macd_had_a_horse.add(tmhor);
                         e.remove();
