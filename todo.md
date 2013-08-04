@@ -23,6 +23,8 @@
 12. Make the wood and baker secondary console rooms into fully fledged TARDISes, build ARS TARDIS
 13. Temporal Invisibility (in progress)
 14. Village room and villager farming
+15. Remove Spout
+16. Stop fixing / adding other stuff not on the list!
 
 ### Waiting on Bukkit API
 1. Get/set horse speed (Attribute API)
