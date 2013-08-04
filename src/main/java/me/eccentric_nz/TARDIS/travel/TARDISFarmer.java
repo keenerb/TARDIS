@@ -148,8 +148,6 @@ public class TARDISFarmer {
                         horse.eject();
                         // don't farm other player's tamed horses
                         if (brokenin.isTamed()) {
-//                            plugin.debug("Horse owner: " + brokenin.getOwner().getName());
-//                            plugin.debug("Timelord: " + p.getName());
                             if (brokenin.getOwner() != null && !brokenin.getOwner().getName().equals(p.getName())) {
                                 break;
                             }
@@ -177,6 +175,11 @@ public class TARDISFarmer {
                             TardisHorseSpeed ths = (TardisHorseSpeed) plugin.pm.getPlugin("TardisHorseSpeed");
                             double speed = ths.getHorseSpeed(horse);
                             tmhor.setSpeed(speed);
+                        }
+                        if (horse.isLeashed()) {
+                            Entity leash = horse.getLeashHolder();
+                            tmhor.setLeashed(true);
+                            leash.remove();
                         }
                         old_macd_had_a_horse.add(tmhor);
                         e.remove();
@@ -378,6 +381,12 @@ public class TARDISFarmer {
                             equine.setJumpStrength(e.getJumpStrength());
                             if (e.hasChest()) {
                                 equine.setCarryingChest(true);
+                            }
+                            if (e.isLeashed()) {
+                                Inventory pinv = p.getInventory();
+                                ItemStack leash = new ItemStack(Material.LEASH, 1);
+                                pinv.addItem(leash);
+                                p.updateInventory();
                             }
                             if (plugin.pm.isPluginEnabled("TardisHorseSpeed")) {
                                 TardisHorseSpeed ths = (TardisHorseSpeed) plugin.pm.getPlugin("TardisHorseSpeed");
