@@ -251,6 +251,9 @@ public class TARDISMaterialisationRunnable implements Runnable {
                         case 18:
                             plugin.utils.setBlockAndRemember(world, x, y, z, 17, b, tid);
                             break;
+                        case 20:
+                            plugin.utils.setBlockAndRemember(world, x, y, z, 20, (byte) 0, tid);
+                            break;
                         case 46:
                             plugin.utils.setBlockAndRemember(world, x, y, z, 35, (byte) 14, tid);
                             break;
@@ -261,7 +264,11 @@ public class TARDISMaterialisationRunnable implements Runnable {
                             plugin.utils.setBlockAndRemember(world, x, y, z, 35, (byte) 4, tid);
                             break;
                         default:
-                            plugin.utils.setBlockAndRemember(world, x, y, z, id, b, tid);
+                            if (lamp == 123 && plugin.bukkitversion.compareTo(plugin.precomparatorversion) >= 0) {
+                                plugin.utils.setBlockAndRemember(world, x, y, z, 152, (byte) 0, tid);
+                            } else {
+                                plugin.utils.setBlockAndRemember(world, x, y, z, mat, data, tid);
+                            }
                             break;
                     }
                     plugin.utils.setBlockAndRemember(world, plusx, y, z, id, b, tid); // east
@@ -326,20 +333,27 @@ public class TARDISMaterialisationRunnable implements Runnable {
                     plugin.utils.setBlock(world, plusx, minusy, minusz, id, b);
                     // top layer
                     switch (id) {
-                        case 18:
+                        case 18: // leaves
                             plugin.utils.setBlock(world, x, y, z, 17, b);
                             break;
-                        case 46:
+                        case 20: //glass
+                            plugin.utils.setBlock(world, x, y, z, 20, (byte) 0);
+                            break;
+                        case 46: // tnt
                             plugin.utils.setBlock(world, x, y, z, 35, (byte) 14);
                             break;
-                        case 79:
+                        case 79: // ice
                             plugin.utils.setBlock(world, x, y, z, 35, (byte) 3);
                             break;
-                        case 89:
+                        case 89: // glowstone
                             plugin.utils.setBlock(world, x, y, z, 35, (byte) 4);
                             break;
                         default:
-                            plugin.utils.setBlock(world, x, y, z, id, b);
+                            if (lamp == 123 && plugin.bukkitversion.compareTo(plugin.precomparatorversion) >= 0) {
+                                plugin.utils.setBlock(world, x, y, z, 152, b);
+                            } else {
+                                plugin.utils.setBlock(world, x, y, z, id, b);
+                            }
                             break;
                     }
                     plugin.utils.setBlock(world, plusx, y, z, id, b); // east
