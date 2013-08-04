@@ -125,6 +125,7 @@ permissions:
       tardis.room.mushroom: true
       tardis.room.passage: true
       tardis.room.pool: true
+      tardis.room.rail: true
       tardis.room.stable: true
       tardis.room.vault: true
       tardis.room.wood: true
@@ -267,6 +268,11 @@ commands:
       usage: /<command> room [room type|help]
       permission: tardis.room
       permission-message: You don't have the permission <permission> to use this command
+    abort:
+       description: Stop growing a TARDIS room.
+       usage: /<command> abort [task ID number]
+       permission: tardis.room
+       permission-message: You don't have the permission <permission> to use this command
     version:
       description: Display the TARDIS plugin and CraftBukkit version.
       usage: /<command> version
