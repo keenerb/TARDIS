@@ -742,10 +742,11 @@ public class TARDIS extends JavaPlugin {
 
     private void checkMaps() {
         // get server's main world folder
+        File container = getServer().getWorldContainer();
         String s_world = getServer().getWorlds().get(0).getName();
         String server_world = s_world + File.separator + "data" + File.separator;
         String map = "map_1963.dat";
-        String root = new File("." + File.separator + server_world).getAbsolutePath();
+        String root = container.getAbsolutePath() + File.separator + server_world;
         File file = new File(root, map);
         if (!file.exists()) {
             String map2 = "map_1964.dat";
