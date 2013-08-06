@@ -77,7 +77,7 @@ public class TARDISSaveSignListener implements Listener {
                             String save = getDestination(lore, d);
                             if (!save.equals(rs.getCurrent())) {
                                 HashMap<String, Object> set = new HashMap<String, Object>();
-                                if (lore.size() == 5 && !lore.get(4).isEmpty()) {
+                                if (lore.size() == 5 && !lore.get(4).isEmpty() && !lore.get(4).equals("§6Current location")) {
                                     set.put("direction", lore.get(4));
                                 }
                                 set.put("save", save);
