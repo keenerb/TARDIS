@@ -57,6 +57,14 @@ public class TARDISHotbarListener implements Listener {
                         player.setCompassTarget(pb);
                     }
                 }
+            } else {
+                Location bedspawn = player.getBedSpawnLocation();
+                // if player has bed spawn set
+                if (bedspawn != null) {
+                    player.setCompassTarget(bedspawn);
+                } else {
+                    player.setCompassTarget(player.getWorld().getSpawnLocation());
+                }
             }
         }
     }
