@@ -45,8 +45,8 @@ public class TARDISHotbarListener implements Listener {
         Player player = event.getPlayer();
         PlayerInventory inv = player.getInventory();
         ItemStack is = inv.getItem(event.getNewSlot());
-        if (is != null && is.getTypeId() == 345 && is.hasItemMeta()) {
-            if (is.getItemMeta().hasDisplayName() && is.getItemMeta().getDisplayName().equals("TARDIS Locator")) {
+        if (is != null && is.getTypeId() == 345) {
+            if (is.hasItemMeta() && is.getItemMeta().hasDisplayName() && is.getItemMeta().getDisplayName().equals("TARDIS Locator")) {
                 // get TARDIS location
                 HashMap<String, Object> where = new HashMap<String, Object>();
                 where.put("owner", player.getName());
