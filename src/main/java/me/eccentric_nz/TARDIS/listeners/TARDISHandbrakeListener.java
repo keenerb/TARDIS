@@ -154,6 +154,8 @@ public class TARDISHandbrakeListener implements Listener {
                                                     }
                                                     // add a potion effect to the player
                                                     player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 150, 5));
+                                                } else {
+                                                    malfunction = false;
                                                 }
                                             }
                                         }
