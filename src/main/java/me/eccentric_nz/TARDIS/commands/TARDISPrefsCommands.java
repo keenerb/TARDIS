@@ -176,6 +176,10 @@ public class TARDISPrefsCommands implements CommandExecutor {
                     }
                     if (pref.equals("eps_message")) {
                         int count = args.length;
+                        if (count < 2) {
+                            sender.sendMessage(plugin.pluginName + "You need to specify a message!");
+                            return true;
+                        }
                         StringBuilder buf = new StringBuilder();
                         for (int i = 1; i < count; i++) {
                             buf.append(args[i]).append(" ");
