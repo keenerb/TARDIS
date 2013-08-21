@@ -81,19 +81,23 @@ public class TARDISSaveSignInventory {
             // cycle through saves
             for (HashMap<String, String> map : data) {
                 if (map.get("type").equals("0")) {
-                    ItemStack is = new ItemStack(ids.get(i), 1);
-                    ItemMeta im = is.getItemMeta();
-                    im.setDisplayName(map.get("dest_name"));
-                    List<String> lore = new ArrayList<String>();
-                    lore.add(map.get("world"));
-                    lore.add(map.get("x"));
-                    lore.add(map.get("y"));
-                    lore.add(map.get("z"));
-                    lore.add(map.get("direction"));
-                    im.setLore(lore);
-                    is.setItemMeta(im);
-                    dests.add(is);
-                    i++;
+                    if (i < 54) {
+                        ItemStack is = new ItemStack(ids.get(i), 1);
+                        ItemMeta im = is.getItemMeta();
+                        im.setDisplayName(map.get("dest_name"));
+                        List<String> lore = new ArrayList<String>();
+                        lore.add(map.get("world"));
+                        lore.add(map.get("x"));
+                        lore.add(map.get("y"));
+                        lore.add(map.get("z"));
+                        lore.add(map.get("direction"));
+                        im.setLore(lore);
+                        is.setItemMeta(im);
+                        dests.add(is);
+                        i++;
+                    } else {
+                        break;
+                    }
                 }
             }
         }
