@@ -28,7 +28,7 @@ import me.eccentric_nz.TARDIS.TARDIS;
  *
  * @author eccentric_nz
  */
-public class ResultSetSave {
+public class ResultSetCurrent {
 
     private TARDISDatabase service = TARDISDatabase.getInstance();
     private Connection connection = service.getConnection();
@@ -42,7 +42,7 @@ public class ResultSetSave {
      * @param plugin an instance of the main class.
      * @param where a String location to check.
      */
-    public ResultSetSave(TARDIS plugin, String where) {
+    public ResultSetCurrent(TARDIS plugin, String where) {
         this.plugin = plugin;
         this.where = where;
     }
@@ -56,8 +56,7 @@ public class ResultSetSave {
     public boolean resultSet() {
         PreparedStatement statement = null;
         ResultSet rs = null;
-        String query = "SELECT save FROM tardis WHERE save LIKE ?";
-        //plugin.debug(query);
+        String query = "SELECT current FROM tardis WHERE current LIKE ?";
         try {
             statement = connection.prepareStatement(query);
             statement.setString(1, where);
@@ -68,7 +67,7 @@ public class ResultSetSave {
                 return false;
             }
         } catch (SQLException e) {
-            plugin.debug("ResultSet error for (save) tardis table! " + e.getMessage());
+            plugin.debug("ResultSet error for (current) tardis table! " + e.getMessage());
             return false;
         } finally {
             try {
@@ -79,7 +78,7 @@ public class ResultSetSave {
                     statement.close();
                 }
             } catch (Exception e) {
-                plugin.debug("Error closing (save) tardis table! " + e.getMessage());
+                plugin.debug("Error closing (current) tardis table! " + e.getMessage());
             }
         }
     }
