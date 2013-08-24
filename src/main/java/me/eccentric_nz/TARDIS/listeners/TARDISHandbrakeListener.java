@@ -175,7 +175,6 @@ public class TARDISHandbrakeListener implements Listener {
                                             if (!exit.getWorld().isChunkLoaded(exit.getChunk())) {
                                                 exit.getWorld().loadChunk(exit.getChunk());
                                             }
-                                            exit.getWorld().refreshChunk(exit.getChunk().getX(), exit.getChunk().getZ());
                                             Location l = plugin.utils.getLocationFromDB(cl, 0, 0);
                                             boolean mat = plugin.getConfig().getBoolean("materialise");
                                             if (!rs.isHidden()) {
